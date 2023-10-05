@@ -1,5 +1,6 @@
 import discord, sqlite3, os, datetime, re
 from discord.ext import commands
+import TOKEN
 
 
 # os.chdir(r'E11')
@@ -469,7 +470,7 @@ async def unban_error(ctx, error):
         await ctx.reply(embed=discord.Embed(description='멤버를 정확히 입력해주세요.', color=discord.Color.red()))
 
 
-@bot.command(name='warning', aliases=['warnings', 'infraction', 'infractions', '경고확인'])
+@bot.command(name='warning', aliases=['warnings', 'infraction', 'infractions', '경고확인', '경고목록'])
 async def warning(ctx: commands.context.Context, user: discord.Member=None):
     if user:
         if not await is_owner(ctx) and user!=ctx.author:
@@ -507,4 +508,4 @@ async def sync(ctx):
     await ctx.reply(f'Synced {len(synced)} commands.')
 
 
-bot.run('MTE1MDY5NDk5ODI4MzY0OTA3NA.GNplce.biKppLcMnpXIjaDV2v2DJEL1OIdhB1R08B_VXA')
+bot.run(TOKEN.TOKEN)
