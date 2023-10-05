@@ -1,6 +1,5 @@
 import discord, sqlite3, os, datetime, re
 from discord.ext import commands
-import TOKEN
 
 
 # os.chdir(r'E11')
@@ -508,4 +507,4 @@ async def sync(ctx):
     await ctx.reply(f'Synced {len(synced)} commands.')
 
 
-bot.run(TOKEN.TOKEN)
+bot.run(os.environ.get('TOKEN'))
